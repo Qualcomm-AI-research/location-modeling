@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="Generative Location Modeling for Spatially Aware Object Insertion">
+    <meta name="keywords" content="Location Modeling, Image Editing, Object Insertion">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Generative Location Modeling for Spatially Aware Object Insertion</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+</nav>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">Generative Location Modeling for Spatially Aware Object
+                        Insertion</h1>
+                    <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Jooyeol Yun<sup>1,2</sup>,</span>
+                        <span class="author-block">
+              <a href="https://davideabati.info/">Davide Abati</a><sup>1</sup>,</span>
+                        <span class="author-block">
+              Mohamed Omran<sup>1</sup>,
+            </span>
+                        <span class="author-block">
+              <a href="https://sites.google.com/site/jaegulchoo/">Jaegul Choo</a><sup>2</sup>,
+            </span>
+                        <span class="author-block">
+              <a href="https://habibian.github.io/">Amir Habibian</a><sup>1</sup>,
+            </span>
+                        <span class="author-block">
+              Auke Wiggers<sup>1</sup>
+            </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>1</sup>Qualcomm AI Research,</span>
+                        <span class="author-block"><sup>2</sup>Kim Jaechul Graduate School of Artificial Intelligence, KAIST</span>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- PDF Link. -->
+                            <span class="link-block">
+                <a href="https://arxiv.org/abs/2410.13564"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+                            <span class="link-block">
+                <a href="https://arxiv.org/abs/2410.13564"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="item">
+                    <img loading="lazy" src="./static/images/edits/carousel_0.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/edits/carousel_1.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/edits/carousel_2.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/edits/carousel_3.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/edits/carousel_4.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/edits/carousel_5.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/edits/carousel_6.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/edits/carousel_7.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/edits/carousel_8.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/edits/carousel_9.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Generative models have become a powerful tool for image editing tasks, including object
+                        insertion.
+                        However, these methods often lack spatial awareness, generating objects with unrealistic
+                        locations and scales, or unintentionally altering the scene background.
+                        A key challenge lies in maintaining visual coherence, which requires both a geometrically
+                        suitable object location and a high-quality image edit.
+                    </p>
+                    <p>
+                        In this paper, we focus on the former, creating a <em>location model</em> dedicated to
+                        identifying realistic object locations.
+                        Specifically, we train an autoregressive model that generates bounding box coordinates,
+                        conditioned on the background image and the desired object class.
+                        This formulation allows to effectively handle sparse placement annotations and to incorporate
+                        implausible locations into a preference dataset by performing direct preference optimization.
+                        Our extensive experiments demonstrate that our generative location model, when paired with an
+                        inpainting method, substantially outperforms state-of-the-art instruction-tuned models and
+                        location modeling baselines in object insertion tasks, delivering accurate and visually coherent
+                        results.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--/ Abstract. -->
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Model. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column">
+                <h2 class="title is-3">Model</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        We approach the problem of generative object insertion by decomposing it into two steps.
+                        First, we train a <b>location model</b> to determine where a specific object category could be
+                        potentially placed within a given scene.
+                        Then, we provide such location information (as well as the scene and object category to be
+                        added) to a pretrained inpainting model to render it.
+                    </p>
+                    <p>
+                        This strategy is in contrast with the common practice of editing scenes with instruction-based
+                        methods.
+                        Such methods typically operate holistically and regenerate the whole scene,
+                        establishing where to place new objects implicitly during the rendering process.
+                    </p>
+                    <p>
+                        Explicitly modeling locations allows to safely <b>protect background areas</b> (that should not
+                        be
+                        changed) and it enables <b>fine-grained control</b> over the editing process.
+                        For instance, it makes easier to bias the location of the edit towards preferred regions, or to
+                        force
+                        multiple edits in different areas of the scene.
+                    </p>
+                    <p>
+                        Our location model is generative and operates autoregressively, decoding bounding boxes one
+                        coordinate at a time:
+                    </p>
+                </div>
+
+                <div class="item">
+                    <img src="./static/images/model.png" alt="A model">
+                </div>
+                <div class="content has-text-justified">
+                    <p>
+                        Our location model first observes a background scene and an object category to be added to it,
+                        and it processes them into a visual and textual tokens, respectively.
+                        Next, these tokens are processed by a transformer architecture that outputs a plausible location
+                        in the form of a bounding box.
+                        Its coordinates are generated one at a time by following an autoregressive procedure.
+                    </p>
+                    <p>
+                        Training such model only requires examples of plausible object placement. However, we show that
+                        inplausible placements can benefit its training by using them as negative human preference
+                        or reward, e.g. with <a href="https://arxiv.org/abs/2305.18290">Direct Preference Optimization
+                        (DPO)</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--/ Model. -->
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+
+        <div class="columns is-centered">
+            <div class="column">
+                <h2 class="title is-3">Better locations</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Considering pure location modeling performance, our autoregressive model achieves
+                        a very competitive balance between True and False Positive Rates (TPR, FPR).
+                        It performs favorably as compared to other location modeling or object placement approaches.
+                    </p>
+                    <img src="./static/images/tpr_fpr.jpg">
+                </div>
+            </div>
+            <!--/ Visual Effects. -->
+
+            <!-- Matting. -->
+            <div class="column">
+                <h2 class="title is-3">Better edits</h2>
+                <div class="columns is-centered">
+                    <div class="column content has-text-justified">
+                        <p>
+                            When used in conjunction with an off-the-shelf inpainter (PowerPaint), locations proposed by
+                            our model
+                            result in very realistic edits.
+                            A user study involving 46 participants suggested that edits from such a model are
+                            typically preferred to ones coming from modern instruction-based models, that edit the image
+                            globally and
+                            reason about location for the added object only implicitly.
+                        </p>
+                        <p>
+                            Our model is also preferred to a discriminative baseline (FasterRCNN), whose proposed
+                            locations are fed to
+                            the same inpainter.
+                        </p>
+                        <img src="./static/images/user_study.jpg">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--/ Matting. -->
+    </div>
+</section>
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="column is-centered has-text-centered">
+                <h2 class="title is-3">Diverse Edits</h2>
+            </div>
+            <div class="content has-text-justified">
+                <p>
+                    Combining an explicit location model and a pretrained inpainting method, we observe a higher
+                    diversity
+                    in edits as compared to instruction-based architectures.
+                    Diversity spans both from the location of the edit and its appearance.
+                </p>
+            </div>
+
+            <div class="carousel results-carousel">
+                <div class="item">
+                    <img loading="lazy" src="./static/images/diversity/div_0.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/diversity/div_1.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/diversity/div_2.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/diversity/div_3.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/diversity/div_4.jpg">
+                </div>
+                <div class="item">
+                    <img loading="lazy" src="./static/images/diversity/div_5.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@article{yun2024locationmodeling,
+  author    = {Yun, Jooyeol and Abati, Davide and Omran, Mohamed and Choo, Jaegul and Habibian, Amir and Wiggers, Auke},
+  title     = {Generative Location Modeling for Spatially Aware Object Insertion},
+  journal   = {arXiv},
+  year      = {2024},
+}</code></pre>
+    </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the&nbsp;<a href="https://nerfies.github.io" target="_blank">Nerfies</a>&nbsp;project page.<br>
+			This website is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+              Qualcomm AI Research is an initiative of Qualcomm Technologies, Inc.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
